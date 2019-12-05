@@ -1,0 +1,26 @@
+﻿
+
+Connection string till petlevdb
+
+Orginal:
+Server=tcp:peterlevander.database.windows.net,1433;Initial Catalog=petlevdb;Persist Security Info=False;User ID=azureuser;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+user: webcoreuser	Gunsan1928
+Server=tcp:peterlevander.database.windows.net,1433;Initial Catalog=petlevdb;Persist Security Info=False;User ID=webcoreuser;Password=Gunsan1928;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+Från commant Promt
+C:\Egenmapp\Jobbet\Utveckling\VS2017\TestMVCWebCore\TestMVCWebCore>dotnet ef migrations add initial
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
+      User profile is available. Using 'C:\Users\plevande\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 2.0.2-rtm-10011 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Done. To undo this action, use 'ef migrations remove'
+
+C:\Egenmapp\Jobbet\Utveckling\VS2017\TestMVCWebCore\TestMVCWebCore>
+
+
+Registrerad Login User
+levander.peter@gmail.com
+Qwert!2345
+
+Har även fått Login funktionen att funka mot Azur petlevdb.
