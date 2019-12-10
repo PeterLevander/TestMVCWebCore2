@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.WindowsAzure.Storage.Blob;
 using TestMVCWebCore.Data;
 using TestMVCWebCore.Models;
 using TestMVCWebCore.Services;
@@ -35,6 +36,10 @@ namespace TestMVCWebCore
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+
+            //TODO Add Azure Image service
+            services.AddScoped<IImageStorage, ImageStore>();
+            //services.Configure<ImageStore>(Configuration);
 
             services.AddMvc();
         }

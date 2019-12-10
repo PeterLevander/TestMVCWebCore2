@@ -8,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace TestMVCWebCore.Services
 {
-    public class ImageStore
+    public interface IImageStorage
+    {
+         Task<string> SaveImage(Stream imageStream);
+
+        string UriFor(string ImageId);
+    }
+    public class ImageStore : IImageStorage
     {
         CloudBlobClient blobClient;
         string baseUri = "https://levanderstorage.blob.core.windows.net/";
@@ -27,9 +33,20 @@ namespace TestMVCWebCore.Services
 
             return imageId;     // Task.FromResult(Guid.NewGuid().ToString());
         }
-        public string UriFor(string ImageId)
+        public string UriFor(string imageId)
         {
-            return $"{baseUri}images/{ImageId}";
+            var sasPolicy = new SharedAccessBlobPolicy
+            {
+                Permissions = SharedAccessBlobPermissions.Read,
+                SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-15),
+                SharedAccessExpiryTime = DateTime.UtcNow.AddMinutes(15)
+            };
+
+            var container = blobClient.GetContainerReference("images");
+            var blob = container.GetBlockBlobReference(imageId);
+            var sasToken = blob.GetSharedAccessSignature(sasPolicy);
+            return  $"{baseUri}images/{imageId}{sasToken}";
+            //return new Uri(baseUri, $"/images/{imageId}{sasToken}");
         }
     } 
 }

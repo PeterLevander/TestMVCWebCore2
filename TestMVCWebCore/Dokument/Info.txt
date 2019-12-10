@@ -34,4 +34,12 @@ Blob Endpoint: https://levanderstorage.blob.core.windows.net/
 Blob service resourceID: /subscriptions/afde594a-09e5-4f98-b1a0-4a44c59b27fe/resourceGroups/LevanderGroup/providers/Microsoft.Storage/storageAccounts/levanderstorage/blobServices/default
 Access Key: lKdDeGhmntILnjvq/eY/mdzvdBu3bsEEzSxMWojuCW+s4eid3zrHCq/TCL+V7Btd3xh0TXRMcHvuZigGH2We9Q==
 
+Shared Access Signature SAS
+Connection String:
+BlobEndpoint=https://levanderstorage.blob.core.windows.net/;QueueEndpoint=https://levanderstorage.queue.core.windows.net/;FileEndpoint=https://levanderstorage.file.core.windows.net/;TableEndpoint=https://levanderstorage.table.core.windows.net/;SharedAccessSignature=sv=2019-02-02&ss=b&srt=sco&sp=rwlac&se=2020-12-10T22:59:43Z&st=2019-12-10T14:59:43Z&spr=https&sig=4cf1VZL3pJD16dNHvL5cduKl1tsyG0aiGu%2BweI6cJa0%3D
+SAS token:
+?sv=2019-02-02&ss=b&srt=sco&sp=rwlac&se=2020-12-10T22:59:43Z&st=2019-12-10T14:59:43Z&spr=https&sig=4cf1VZL3pJD16dNHvL5cduKl1tsyG0aiGu%2BweI6cJa0%3D
+Blob service SAS URL:
+https://levanderstorage.blob.core.windows.net/?sv=2019-02-02&ss=b&srt=sco&sp=rwlac&se=2020-12-10T22:59:43Z&st=2019-12-10T14:59:43Z&spr=https&sig=4cf1VZL3pJD16dNHvL5cduKl1tsyG0aiGu%2BweI6cJa0%3D
+
 
