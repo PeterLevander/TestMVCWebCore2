@@ -13,11 +13,14 @@ namespace TestMVCWebCore.Controllers
     [Route("[controller]/[action]")]
     public class ImagesController : Controller
     {
-        private readonly ImageStore imageStore;
-        string xxx = "Härär jag nu";
-        public ImagesController(ImageStore imageStore)
+        // se video om att använda Azure Blob Storage 
+        // https://app.pluralsight.com/course-player?clipId=0739e021-ac67-4189-911f-267aab962442
+
+        private readonly IImageStorage _imageStore;
+        public ImagesController(IImageStorage imageStore)
         {
-            this.imageStore = imageStore;
+            // Dependency injection constructor
+            this._imageStore = imageStore;
         }
         // GET: Images
         public IActionResult Index()
@@ -31,7 +34,7 @@ namespace TestMVCWebCore.Controllers
             {
                 using(var stream = image.OpenReadStream())
                 {
-                    var imageId = await imageStore.SaveImage(stream);
+                    var imageId = await _imageStore.SaveImage(stream);
                     return RedirectToAction("Show", new { imageId });
                 }
             }
@@ -41,7 +44,7 @@ namespace TestMVCWebCore.Controllers
         [HttpGet("{imageId}")]
         public ActionResult Show(string imageId)
         {
-            var model = "gurka";  //new ShowModel { Uri = imageStore.UriFor(imageId) };
+            var model = new ShowModel { Uri = _imageStore.UriFor(imageId) };
             return View(model);
         }
 

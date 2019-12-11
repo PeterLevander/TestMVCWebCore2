@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using TestMVCWebCore.Models;
 
 namespace TestMVCWebCore.Services
 {
@@ -13,15 +14,26 @@ namespace TestMVCWebCore.Services
          Task<string> SaveImage(Stream imageStream);
 
         string UriFor(string ImageId);
+
+        IEnumerable<ImageStore> GetAllImages();
     }
     public class ImageStore : IImageStorage
     {
         CloudBlobClient blobClient;
         string baseUri = "https://levanderstorage.blob.core.windows.net/";
+        private List<ShowModel> _showModel;
         public ImageStore()
         {
             var credentials = new StorageCredentials("levanderstorage", "lKdDeGhmntILnjvq/eY/mdzvdBu3bsEEzSxMWojuCW+s4eid3zrHCq/TCL+V7Btd3xh0TXRMcHvuZigGH2We9Q==");
             blobClient = new CloudBlobClient(new Uri(baseUri),credentials);
+        }
+
+        public IEnumerable<ImageStore> GetAllImages()
+        {
+            //TODO här ska man hämta data från Azure Blob Storage
+            //var container = blobClient.GetContainerReference("images");
+            //var blob = container.GetBlockBlobReference(imageId);
+            return new List<ImageStore>();
         }
 
         public async Task<string>SaveImage(Stream imageStream)
@@ -48,5 +60,6 @@ namespace TestMVCWebCore.Services
             return  $"{baseUri}images/{imageId}{sasToken}";
             //return new Uri(baseUri, $"/images/{imageId}{sasToken}");
         }
+       
     } 
 }

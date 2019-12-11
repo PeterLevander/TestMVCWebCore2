@@ -43,3 +43,6 @@ Blob service SAS URL:
 https://levanderstorage.blob.core.windows.net/?sv=2019-02-02&ss=b&srt=sco&sp=rwlac&se=2020-12-10T22:59:43Z&st=2019-12-10T14:59:43Z&spr=https&sig=4cf1VZL3pJD16dNHvL5cduKl1tsyG0aiGu%2BweI6cJa0%3D
 
 
+VIDEOs:
+ASP NET Core Dependency injection:
+https://www.youtube.com/watch?v=BPGtVpu81ek

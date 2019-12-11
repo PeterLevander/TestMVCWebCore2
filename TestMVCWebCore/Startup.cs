@@ -38,8 +38,8 @@ namespace TestMVCWebCore
             services.AddTransient<IEmailSender, EmailSender>();
 
             //TODO Add Azure Image service
-            services.AddScoped<IImageStorage, ImageStore>();
-            //services.Configure<ImageStore>(Configuration);
+            services.AddSingleton<IImageStorage, ImageStore>();  // Registrera ImageStore class till ImagesController 
+            //services.AddScoped<IImageStorage, ImageStore>();
 
             services.AddMvc();
         }
